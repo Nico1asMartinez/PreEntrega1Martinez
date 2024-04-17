@@ -11,6 +11,11 @@ function ItemList({producto}) {
 
   return (
 
+    <div>
+          <img src={image}  />
+
+    </div>
+
         
   )
         

@@ -70,10 +70,17 @@ function ItemListContainer() {
 
   return (
 
-            productos.map((producto) => <ItemList key={producto.id} producto={producto}/>)
+        productos.map((producto) =>{
+
+            return(
+                <main>
+                        
+                </main>
+            )
             
-    
-  )
+            
+            })
+        )
 }
 
 export default ItemListContainer
