@@ -55,10 +55,10 @@ function ItemListContainer() {
     
         })
             promesa.then((resolve) => {
-                setProductos(resolve)
+                setProductos(resolve.results)
             })
   
-        })
+        }, [])
 
 
 
@@ -70,7 +70,7 @@ function ItemListContainer() {
 
   return (
 
-            productos.map((producto) => <ItemList key={producto.id} {...producto}/>)
+            productos.map((producto) => <ItemList key={producto.id} producto={producto}/>)
             
     
   )
