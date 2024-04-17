@@ -2,16 +2,20 @@
 
 
 
-function ItemList({}) {
+function ItemList({producto}) {
+
+  const {id, name, image, description, price, stock} = producto
 
 
 
 
   return (
 
-
-    <div>ItemList</div>
+    
   )
+        
+    
+  
 }
 
 export default ItemList
