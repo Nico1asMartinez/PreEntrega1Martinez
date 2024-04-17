@@ -1,13 +1,13 @@
 
 import { useEffect, useState } from "react"
-import ItemList from "./ItemList";
+
 
 
 
 
 function ItemListContainer() {
 
-        const [productos, setProductos] = useState([])
+        const {productos, setProductos} = useState([])
 
         useEffect(() => {
                 
@@ -55,33 +55,30 @@ function ItemListContainer() {
     
         })
             promesa.then((resolve) => {
-                setProductos(resolve.results)
+                setProductos(resolve)
+                
+            
             })
   
         }, [])
 
 
 
-
-
-
-
-
-
   return (
 
-        productos.map((producto) =>{
+            productos.map((productos) => {
+                return ( 
+                   < h1>{productos.name}</h1>
+                )
+            }
+            
+            
+            
 
-            return(
-                <main>
-                        
-                </main>
-            )
-            
-            
-            })
         )
-}
+    )
+        }
+
 
 export default ItemListContainer
 
