@@ -1,6 +1,12 @@
 
 import ItemListContainer from './components/ItemListContainer'
 import NavBar from './components/NavBar'
+import Promesa from './components/Promesa'
+
+
+
+
+
 
 function App() {
 
@@ -8,10 +14,10 @@ function App() {
   return (
     <>
       <NavBar/>
+      
+      <ItemListContainer/>
 
-      <ItemListContainer
-        nombre="Nuestros productos"
-      />
+      <Promesa/>
     </>
   )
 }

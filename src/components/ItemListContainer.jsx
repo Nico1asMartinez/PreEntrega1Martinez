@@ -1,19 +1,61 @@
 import { UserRound } from "lucide-react"
+import { useEffect, useState } from "react"
+import data from "../products"
+
+
+
+
 
 function ItemListContainer(props) {
 
-        
 
-    console.log(props)
-    console.log(props.nombre)
+    
+    const [product, setProduct] = useState([])
+    
+    useEffect(() => {
+        
+        const promesa = new Promise((resolve) => {
+
+            setTimeout(() => {
+                resolve({data})
+                
+                })
+          
+            }, 2000)
+            
+          promesa.then((resolve) => {
+            
+            console.log(resolve)
+            
+          })
+
+
+    })
+
+        
 
 
     return (
-        <div>
-            <h2>{props.nombre}</h2>
-            <UserRound width={50} height={50}/>   
-        </div>
+        
+
+        data.map((product) => {
+
+            return (
+                <div>
+                    <h1>{product.name}</h1>
+                    <h1>{product.price}</h1>
+                    <h1>{product.stock}</h1>
+                    <img src={product.image} className="w-40"/>
+                </div>
+            )
+        }
+
+
+
+
+
     )
+)
 }
 
 export default ItemListContainer
