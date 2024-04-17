@@ -1,6 +1,7 @@
 import { data } from "autoprefixer"
 import { UserRound } from "lucide-react"
 import { useEffect, useState } from "react"
+import ItemList from "./ItemList"
 
 
 
@@ -10,7 +11,7 @@ import { useEffect, useState } from "react"
 
 
 
-function ItemListContainer(props) {
+function ItemListContainer() {
 
   
 
@@ -75,17 +76,14 @@ function ItemListContainer(props) {
 
         
     return (
-              data.map((item) => {
-
-                return <div key={item.id}> <h1>{item.name}</h1> </div>
-              })
-          
-
               
-              )
+              products.map((item) => {
+
+                return <ItemList products={products} key={products.id} />
+              })
 
         
-        
+            )
     
 
 }
