@@ -1,6 +1,10 @@
+import { data } from "autoprefixer"
 import { UserRound } from "lucide-react"
 import { useEffect, useState } from "react"
-import data from "../products"
+
+
+
+
 
 
 
@@ -8,16 +12,53 @@ import data from "../products"
 
 function ItemListContainer(props) {
 
+  
+
+   
+
 
     
-    const [product, setProduct] = useState([])
+    const [products, setProducts] = useState([])
     
     useEffect(() => {
         
         const promesa = new Promise((resolve) => {
 
             setTimeout(() => {
-                resolve({data})
+                resolve(
+                  [
+                    {
+                        "id": 1,
+                        "name": "Auto",
+                        "image": "/auto.png",
+                        "description": "Auto description",
+                        "price": 1000,
+                        "stock": 10
+                    },
+                    
+                    {
+                        "id": 2,
+                        "name": "Camioneta",
+                        "image": "/camioneta.png",
+                        "description": "Camioneta description",
+                        "price": 2000,
+                        "stock": 6
+                    },
+                
+                    {
+                        "id": 3,
+                        "name": "Moto",
+                        "image": "/moto.png",
+                        "description": "Moto description",
+                        "price": 600,
+                        "stock": 3
+                
+                    }
+                
+                
+                
+                    ]
+                )
                 
                 })
           
@@ -33,29 +74,20 @@ function ItemListContainer(props) {
     })
 
         
-
-
     return (
+              data.map((item) => {
+
+                return <div key={item.id}> <h1>{item.name}</h1> </div>
+              })
+          
+
+              
+              )
+
         
+        
+    
 
-        data.map((product) => {
-
-            return (
-                <div>
-                    <h1>{product.name}</h1>
-                    <h1>{product.price}</h1>
-                    <h1>{product.stock}</h1>
-                    <img src={product.image} className="w-40"/>
-                </div>
-            )
-        }
-
-
-
-
-
-    )
-)
 }
 
 export default ItemListContainer
