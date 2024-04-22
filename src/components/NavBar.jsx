@@ -1,6 +1,7 @@
 import { Button } from "antd";
 import { Menu } from "lucide-react";
 import CartWidget from "./CartWidget";
+import { Link } from "react-router-dom";
 
 
 
@@ -11,12 +12,17 @@ function NavBar() {
     return (
         <nav className="bg-blue-200 p-5 flex justify-between shadow-lg"    >
 
-                <h1 className="text-3xl mr-10 ">Mi Navbar</h1>
+            <Link to='/'> <h1 className="text-3xl mr-10 ">Mi Navbar</h1> </Link>
+            
+                <Link to='/category/autos'><Button>Autos</Button></Link>
+                
+                <Link to='/category/camionetas'><Button>Camionetas</Button></Link>
 
-                <a href="#"><Button>Enlace</Button></a>
+                <Link to='/category/motos'><Button>Motos</Button></Link>
                 
 
-                <a href="#"><Button>Enlace</Button></a>
+
+
                 <CartWidget
                     number={0}
                 />

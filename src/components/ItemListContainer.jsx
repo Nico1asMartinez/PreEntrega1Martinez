@@ -1,87 +1,57 @@
-
-import { useEffect, useState } from "react"
-
-
-
-
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom"; 
+import data from "../data.json";
+import { Link } from "react-router-dom";
+import { Button } from "antd";
 
 function ItemListContainer() {
+    const { categoryId } = useParams(); 
+    const [productos, setProductos] = useState([]);
 
-        const {productos, setProductos} = useState([])
-
-        useEffect(() => {
-                
-        const promesa = new Promise((resolve) => {
+    useEffect(() => {
+        const promesa = new Promise((res) => {
             setTimeout(() => {
-                resolve(
+                res(data);
+            }, 1000);
+        });
 
-                    [
-                        {
-                            "id": 1,
-                            "name": "Auto",
-                            "image": "/auto.png",
-                            "description": "Auto description",
-                            "price": 1000,
-                            "stock": 10
-                        },
-                        
-                        {
-                            "id": 2,
-                            "name": "Camioneta",
-                            "image": "/camioneta.png",
-                            "description": "Camioneta description",
-                            "price": 2000,
-                            "stock": 6
-                        },
-                    
-                        {
-                            "id": 3,
-                            "name": "Moto",
-                            "image": "/moto.png",
-                            "description": "Moto description",
-                            "price": 600,
-                            "stock": 3
-                    
-                        }
-                    
-                    
-                    
-                        ]
-                )
-            }, 2000);
-        })
-        promesa.then((resolve) => {
-          console.log(resolve)
-    
-        })
-            promesa.then((resolve) => {
-                setProductos(resolve)
+        promesa.then((res) => {
+            
+            if (categoryId) {
                 
-            
-            })
-  
-        }, [])
-
-
-
-  return (
-
-            productos.map((productos) => {
-                return ( 
-                   < h1>{productos.name}</h1>
-                )
+                const productosFiltrados = res.filter(producto => producto.category === categoryId);
+                setProductos(productosFiltrados);
+            } else {
+                setProductos(res);
             }
+        });
+    }, [categoryId]); 
+
+    return (
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 grow">
             
+        {productos.map((producto) => (
             
-            
-
-        )
-    )
-        }
-
-
-export default ItemListContainer
-
+        <div key={producto.id} className="bg-white shadow-md rounded p-4 flex flex-col justify-between">
+        <h2 className="text-lg font-bold mb-2">{producto.name}</h2>
+        <img src={producto.image} alt={producto.name} className="w-full mb-2" />
+        <Link to={`/item/${producto.id}`}>
+            <Button>Ver detalles</Button>
+        </Link>
+        </div>
+        
+    ))}
     
+    </section>
+    );
+}
 
-   
+export default ItemListContainer;
+
+
+
+
+
+
+
+

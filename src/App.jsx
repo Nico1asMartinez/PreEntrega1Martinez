@@ -1,6 +1,9 @@
 
-import ItemListContainer from './components/ItemListContainer'
+
+import Main from './components/Main'
 import NavBar from './components/NavBar'
+import { BrowserRouter } from 'react-router-dom'
+import Footer from './components/Footer'
 
 
 
@@ -12,13 +15,16 @@ function App() {
 
 
   return (
-    <>
+    <BrowserRouter>
+
       <NavBar/>
       
-      <ItemListContainer/>
+      <Main/>
+
+      <Footer/>
 
       
-    </>
+    </BrowserRouter>
   )
 }
 
