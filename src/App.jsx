@@ -16,14 +16,9 @@ function App() {
 
   return (
     <BrowserRouter>
-
       <NavBar/>
-      
       <Main/>
-
       <Footer/>
-
-      
     </BrowserRouter>
   )
 }
