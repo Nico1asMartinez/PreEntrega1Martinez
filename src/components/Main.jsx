@@ -6,16 +6,20 @@ import ItemDetailContainer from "./ItemDetailContainer";
 
 function Main() {
   return (
-    <Routes>
-
-    <Route path="/" element={<ItemListContainer />} />
-
-    <Route path="/category/:categoryId" element={<ItemListContainer />} />
-
-    <Route path="/item/:id" element={<ItemDetailContainer />} />
-
-    </Routes>
+    <div className="grow">
+      
+      <Routes>
+        <Route path="/" element={<ItemListContainer />} />
+        <Route path="/category/:categoryId" element={<ItemListContainer />} />
+        <Route path="/item/:id" element={<ItemDetailContainer />} />
+      </Routes>
+      
+    </div>
   );
 }
+              
+
+
+
 
 export default Main;

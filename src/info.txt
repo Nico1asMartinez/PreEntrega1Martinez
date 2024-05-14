@@ -1,0 +1,24 @@
+1 k harina  
+50 g levadura
+20 sal
+600 agua
+30 cc aceite    
+
+
+const promesa = new Promise((res) => {
+            setTimeout(() => {
+                res(data);
+            }, 1000);
+        });
+
+        promesa.then((res) => {
+            
+            if (categoryId) {
+                
+                const productosFiltrados = res.filter(producto => producto.category === categoryId);
+                setProductos(productosFiltrados);
+            } else {
+                setProductos(res);
+            }
+        });
+    }, [categoryId]); 
