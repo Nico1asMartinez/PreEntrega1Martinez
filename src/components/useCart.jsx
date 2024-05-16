@@ -1,9 +1,12 @@
-import { useContext } from "react"
-import { contexto } from "../contexto";
+import { useContext } from "react";
+import { contexto } from "./cartProvider";
 
-const useCart = () => {
-    const valorActual = useContext(contexto)
+
+function useCart() {
+
+    const valorActual = useContext(contexto);
+
     return valorActual
 }
 
-export default useCart;
+export default useCart

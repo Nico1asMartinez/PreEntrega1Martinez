@@ -1,9 +1,11 @@
-import React from "react";
+import { useContext } from "react";
 import { Button } from "antd";
-import ItemCount from "./itemCount";
 import { Link } from "react-router-dom";
+import { contexto } from "./cartProvider";
 
 function Item({ item }) {
+
+
     return (
         <div className="item flex flex-col items-center shadow-lg p-5 mr-5 gap-4 " >
             <h3 className="text-3xl font-sans border-b border-black ">{item.name}</h3>

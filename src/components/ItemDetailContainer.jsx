@@ -6,14 +6,13 @@ import { getProductDetail } from "../utils";
 
 function ItemDetailContainer() {
   const { id } = useParams();
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState();
 
   useEffect(() => {
 
 
     getProductDetail(id)
       .then((res) => {
-        console.log(res)
         setProduct(res)
       })
       

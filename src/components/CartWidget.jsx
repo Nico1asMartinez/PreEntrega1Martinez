@@ -1,47 +1,14 @@
-import React, { useState } from "react";
-import { ShoppingCart } from "lucide-react";
+import React from 'react'
+import { ShoppingCart } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
-import { toast } from "react-toastify"
-import { useCart } from "../components/useCart"
-import { createSale } from "../utils"
-
-function Carrito() {
-
-  const { carrito } = useCart()
-  
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    toast.loading("Procesando compra...")
-    createSale()
-    toast.dismiss()
-    toast.success("Compra realizada con exito!")
-  }
-
+function CartWidget() {
   return (
-    <div>
-      <h2 className="text-4xl font-bold ">Carrito</h2>
-      <div>
-        {carrito.map((item) => {
-          return (
-            <article>
-              soy un producto
-            </article>
-          )
-        })}
-      </div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <input className="text-black" type="text" placeholder="nombre" />
-        </div>
-        <div>
-          <input className="text-black" type="text" placeholder="telefono" />
-        </div>
-        <div>
-          <input className="text-black" type="text" placeholder="email" />
-        </div>
-        <button>Comprar</button>
-      </form>
-    </div>
+    <Link to='/cart' className='text-3xl font-sans flex justify-center gap-2 '>
+    <ShoppingCart  />
+    </Link>
+    
   )
 }
-export default Carrito
+
+export default CartWidget

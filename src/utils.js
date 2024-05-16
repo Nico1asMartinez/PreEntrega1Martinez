@@ -1,13 +1,14 @@
 import { app } from "./components/FireBase";
 import { doc, getDoc } from "firebase/firestore";
-import { getFirestore, collection, getDocs, query, where } from "firebase/firestore";
+import { getFirestore, collection, getDocs, query, where, addDoc, serverTimestamp } from "firebase/firestore";
+import useCart from "./components/useCart";
 
 
 
 
 export const getProducts = () => {
 
-    const db = getFirestore(app);
+        const db = getFirestore(app);
         const productcollection = collection(db, "Vehiculos");
         const query = getDocs(productcollection);
         return query
@@ -51,8 +52,6 @@ export const getProductsFromCategories = (categoryId) => {
 };
 
 
-
-
 export const getProductDetail = (id) =>{
 
     const db = getFirestore(app);
@@ -75,26 +74,27 @@ export const getProductDetail = (id) =>{
     
 };
 
+
+
+
 export const createSale = () => {
-    const db = getFirestore(app)
-    const salesCollection = collection(db, "ventas")
-  
-    const venta = {
-      items: [],
-      usuario: { nombre: "Horacio", tel: "123456789", email: "test@test.com" },
-      fechaDeCompra: serverTimestamp(),
-      status: "pendiente",
-      total: 0
-    }
-  
-    const consulta = addDoc(salesCollection, venta)
-    
-    consulta
-      .then((resultado)=>{
-        console.log(resultado)
-      })
-      .catch((error)=>{
-        console.log(error)
-      })
-  
-  }
+        const db = getFirestore(app);
+        const salescollection = collection(db, "ventas");
+        
+        const venta = {
+          items : [carrito],
+          usuario : {nombre : 'Javier', email : 'q6F4W@example.com', telefono : '123456' },
+          fecha : serverTimestamp(),
+          total : 0 
+          } 
+
+          const consulta = addDoc(salescollection, venta)
+          consulta
+          .then((res) => {
+            console.log(res)
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+        
+}
