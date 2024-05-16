@@ -1,4 +1,4 @@
-import { createContext, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 
 export const contexto = createContext();
 
@@ -9,6 +9,8 @@ const Provider = contexto.Provider
         const [cantTotal, setCantTotal] = useState(0)
         const [precioTotal, setPrecioTotal] = useState(0)
         const [carrito, setCarrito] = useState([])
+
+
 
 
 

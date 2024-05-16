@@ -13,7 +13,6 @@ function ItemCart(props) {
       <h3>{props.producto.name}</h3>
       <img className='w-1/3' src={props.producto.image} alt={props.producto.name} />
       <p>Cantidad: {props.producto.cantidad}</p>
-      <p>Precio: {props.producto.precio}</p>
     </div>
     </section>
   );
